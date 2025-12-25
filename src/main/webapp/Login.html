@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Admin Login</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background-color: #000000; /* pure black */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .login-box {
+        width: 380px;
+        padding: 40px 45px;
+        background-color: #000000;
+        border: 2px solid #0A58FF; /* neon royal blue */
+        border-radius: 18px;
+        box-shadow: 0 0 25px rgba(10, 88, 255, 0.5);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-size: 30px;
+        color: #FFD700; /* gold */
+        letter-spacing: 1px;
+        text-shadow:
+            0 0 8px rgba(255, 215, 0, 0.6),
+            0 0 15px rgba(10, 88, 255, 0.6);
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #FFD700;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    input {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        background-color: #000000;
+        border: 2px solid #0A58FF;
+        border-radius: 10px;
+        color: #ffffff;
+        font-size: 14px;
+        box-shadow: 0 0 12px rgba(10, 88, 255, 0.4);
+    }
+
+    input::placeholder {
+        color: #9ca3af;
+    }
+
+    input:focus {
+        outline: none;
+        border-color: #FFD700;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.6);
+    }
+
+    button {
+        width: 100%;
+        padding: 14px;
+        background-color: transparent;
+        border: 2px solid #0A58FF;
+        color: #FFD700;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 30px;
+        cursor: pointer;
+        letter-spacing: 0.5px;
+        transition: 0.3s ease;
+        box-shadow: 0 0 14px rgba(10, 88, 255, 0.6);
+    }
+
+    button:hover {
+        background-color: #0A58FF;
+        color: #ffffff;
+        transform: scale(1.05);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="login-box">
+    <h2>Admin Login</h2>
+
+    <form action="login" method="post">
+        <label>Mobile Number</label>
+        <input type="text" name="username" placeholder="Enter mobile number" required>
+
+        <label>Password</label>
+        <input type="password" name="password" placeholder="Enter password" required>
+
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+</body>
+</html>

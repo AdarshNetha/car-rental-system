@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -35,8 +36,10 @@ public class AddCar extends HttpServlet{
 		entityManager.persist(c);
 		entityTransaction.commit();
 		
-		PrintWriter printWriter=resp.getWriter();
-		printWriter.print("added succesful");
+		RequestDispatcher dispatcher=req.getRequestDispatcher("CarAdded.html");
+		dispatcher.forward(req, resp);
+		
+		
 		
 		
 	}

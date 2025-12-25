@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Car Returned</title>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        background-color: #000000; /* pure black */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    .box {
+        text-align: center;
+        padding: 45px 60px;
+        border: 2px solid #0A58FF; /* neon royal blue */
+        border-radius: 18px;
+        box-shadow: 0 0 25px rgba(10, 88, 255, 0.5);
+    }
+
+    h1 {
+        margin-bottom: 35px;
+        font-size: 34px;
+        color: #FFD700; /* gold */
+        letter-spacing: 1px;
+        text-shadow:
+            0 0 8px rgba(255, 215, 0, 0.6),
+            0 0 15px rgba(10, 88, 255, 0.6);
+    }
+
+    .actions {
+        display: flex;
+        gap: 25px;
+        justify-content: center;
+    }
+
+    button {
+        padding: 14px 36px;
+        border-radius: 30px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        border: 2px solid #0A58FF;
+        background-color: transparent;
+        color: #FFD700;
+        letter-spacing: 0.5px;
+        transition: 0.3s ease;
+        box-shadow: 0 0 12px rgba(10, 88, 255, 0.6);
+    }
+
+    button:hover {
+        background-color: #0A58FF; /* royal blue */
+        color: #FFFFFF;
+        transform: scale(1.05);
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>Car Returned Successfully</h1>
+
+    <div class="actions">
+        <form action="seeallbookedcars">
+            <button type="submit" >Back</button>
+        </form>
+
+        <form action="profile" method="post">
+            <button type="submit">Admin Home Page</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

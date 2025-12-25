@@ -1,3 +1,8 @@
+<%@page import="assets.Booking"%>
+<%@page import="assets.Car"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" session="false" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +18,8 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            gap:30px;
-            flex-direction:column;
             height: 100vh;
         }
-        
          button {
             display: inline-block;
             padding: 15px 35px;
@@ -36,13 +38,35 @@
             color: #fff;
             box-shadow: 0 0 15px #0a4dff;
         }
+        
+		div{
+			height: 300px;
+			width: 200px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;		
+			}
 </style>
 </head>
 <body>
-	<h1>Welcome To Coustmer Page</h1>
-	
+<% Car c=(Car)request.getAttribute("car"); %>
+<% Booking booking=(Booking)request.getAttribute("bookingData");%>
+<div id="container">
+	<h1>Booking Succesfull</h1>
+	<b>Booking Id: </b><%=booking.getCarid()%> <br>
+	<b>Booked Car</b><%=booking.getCname()%><br>
+	<b>From Date</b> <%=booking.getFromDate()%><br>
+	<b>To Date</b>  <%=booking.getToDate()%><br>
+	<b>Car Name</b><%=c.getName()%>
+	<b>Car Model</b> <%=c.getModel()%>
+	<b>Car Price</b> <%=c.getPrice()%>
+	<b>Car Number</b> <%=c.getNumber()%>
 	<form action="customerservice">
-	<button type="submit">List all Availabe Cars</button>
+	<button>Go To Home Page</button>	
 	</form>
+
+	
+</div>
 </body>
 </html>

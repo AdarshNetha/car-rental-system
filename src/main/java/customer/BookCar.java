@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,15 +38,20 @@ public class BookCar extends HttpServlet {
 		{
 			c.setStatus("booked");
 		}
-		entityManager.merge(c);
+		c=entityManager.merge(c);
 		
 		Booking booking= new Booking(id, cname, cphone, fromDate, toDate);
+		
 		
 		entityManager.persist(booking);
 		
 		entityTransaction.commit();
-		PrintWriter printWriter=resp.getWriter();
-		printWriter.print("booked succesful");
+		req.setAttribute("bookingData", booking);
+		req.setAttribute("car", c);
+		RequestDispatcher requestDispatcher= req.getRequestDispatcher("BookingCarData.jsp");
+		requestDispatcher.forward(req, resp);
+		
+		
 		
 	}
 
