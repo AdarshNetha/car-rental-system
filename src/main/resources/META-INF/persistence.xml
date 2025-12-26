@@ -9,21 +9,13 @@
 
         <properties>
 
-            <!-- PostgreSQL Driver -->
             <property name="javax.persistence.jdbc.driver"
                       value="org.postgresql.Driver"/>
 
-            <!-- Railway PostgreSQL (CORRECT WAY) -->
+            <!-- IMPORTANT FIX -->
             <property name="javax.persistence.jdbc.url"
-                      value="jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}"/>
+                      value="jdbc:${DATABASE_URL}"/>
 
-            <property name="javax.persistence.jdbc.user"
-                      value="${PGUSER}"/>
-
-            <property name="javax.persistence.jdbc.password"
-                      value="${PGPASSWORD}"/>
-
-            <!-- Hibernate -->
             <property name="hibernate.dialect"
                       value="org.hibernate.dialect.PostgreSQLDialect"/>
 
