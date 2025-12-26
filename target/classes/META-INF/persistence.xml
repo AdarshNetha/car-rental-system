@@ -13,21 +13,26 @@
             <property name="javax.persistence.jdbc.driver"
                       value="org.postgresql.Driver"/>
 
-            <!-- Railway PostgreSQL (Injected automatically) -->
+            <!-- Railway PostgreSQL (CORRECT WAY) -->
             <property name="javax.persistence.jdbc.url"
-                      value="${DATABASE_URL}"/>
+                      value="jdbc:postgresql://${PGHOST}:${PGPORT}/${PGDATABASE}"/>
 
-            <!-- Hibernate Dialect -->
+            <property name="javax.persistence.jdbc.user"
+                      value="${PGUSER}"/>
+
+            <property name="javax.persistence.jdbc.password"
+                      value="${PGPASSWORD}"/>
+
+            <!-- Hibernate -->
             <property name="hibernate.dialect"
                       value="org.hibernate.dialect.PostgreSQLDialect"/>
 
-            <!-- Auto create / update tables -->
             <property name="hibernate.hbm2ddl.auto"
                       value="update"/>
 
-            <!-- SQL Logs (Optional, keep for debugging) -->
             <property name="hibernate.show_sql"
                       value="true"/>
+
             <property name="hibernate.format_sql"
                       value="true"/>
 
