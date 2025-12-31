@@ -1,7 +1,9 @@
 package customer;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -20,6 +22,14 @@ public class CustomerService extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		Map<String, String> props = new HashMap<String, String>();
+
+		props.put("javax.persistence.jdbc.password",
+		          System.getenv("DB_PASSWORD"));
+
+		EntityManagerFactory emf =
+		    Persistence.createEntityManagerFactory("cars", props);
+
 		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("cars");
 		EntityManager entityManager=entityManagerFactory.createEntityManager();
 		EntityTransaction entityTransaction=entityManager.getTransaction();
