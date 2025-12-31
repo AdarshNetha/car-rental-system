@@ -33,11 +33,17 @@
     <version>4.0.1</version>
     <scope>provided</scope>
 </dependency>
-<!-- Tomcat WebApp Runner (required for Railway) -->
+<!-- Tomcat WebApp Runner (for Railway) -->
 <dependency>
     <groupId>com.heroku</groupId>
     <artifactId>webapp-runner</artifactId>
     <version>9.0.85.0</version>
+    <exclusions>
+        <exclusion>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+        </exclusion>
+    </exclusions>
 </dependency>
 
   </dependencies>
