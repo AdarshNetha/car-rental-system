@@ -11,7 +11,7 @@
           value="org.postgresql.Driver" />
 
 		<property name="javax.persistence.jdbc.url"
-          value="jdbc:postgresql://aws-1-ap-south-1.pooler.supabase.com:5432/postgres" />
+          value="jdbc:postgresql://aws-1-ap-south-1.pooler.supabase.com:5432/postgres?sslmode=require" />
 
 		<property name="javax.persistence.jdbc.user"
           value="postgres.ymgxfedqjczefczcrsxo" />
