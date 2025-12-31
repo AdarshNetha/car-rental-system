@@ -2,8 +2,10 @@ package assets;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "login", schema = "car_rental")
 public class Login {
 	@Id
 	private long mobileNo;

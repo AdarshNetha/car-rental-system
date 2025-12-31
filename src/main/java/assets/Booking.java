@@ -4,8 +4,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "booking", schema = "car_rental")
 public class Booking {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
