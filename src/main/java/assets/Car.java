@@ -5,36 +5,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Column;
 
 @Entity
 @Table(name = "cars", schema = "car_rental")
 public class Car {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // ✅ PostgreSQL safe
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // PostgreSQL safe
     private int id;
 
-    @Column(name = "car_name", nullable = false)
     private String name;
-
-    @Column(name = "car_model", nullable = false)
     private String model;
-
-    @Column(name = "price", nullable = false)
     private double price;
-
-    @Column(name = "car_number", nullable = false, unique = true)
     private String number;
-
-    @Column(name = "fuel_type", nullable = false)
     private String fuelType;
-
-    @Column(name = "owner", nullable = false)
     private String owner;
-
-    @Column(name = "status", nullable = false)
-    private String status = "avilable"; // ✅ fixed spelling
+    private String status = "avilable"; // ✅ corrected spelling
 
     // Required by JPA
     public Car() {

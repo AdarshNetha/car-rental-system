@@ -10,10 +10,10 @@ import javax.persistence.Column;
 public class Login {
 
     @Id
-    @Column(name = "mobile_no", nullable = false)
+    
     private long mobileNo;
 
-    @Column(name = "password", nullable = false)
+   
     private String password;
 
     // Required by JPA

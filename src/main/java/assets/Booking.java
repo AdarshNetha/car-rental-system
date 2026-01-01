@@ -5,29 +5,19 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import javax.persistence.Column;
 
 @Entity
 @Table(name = "booking", schema = "car_rental")
 public class Booking {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // ✅ PostgreSQL safe
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // PostgreSQL safe
     private int id;
 
-    @Column(name = "car_id", nullable = false)
     private int carid;
-
-    @Column(name = "customer_name", nullable = false)
     private String cname;
-
-    @Column(name = "phone_no", nullable = false)
     private long phno;
-
-    @Column(name = "from_date", nullable = false)
     private String fromDate;
-
-    @Column(name = "to_date", nullable = false)
     private String toDate;
 
     // Required by JPA
@@ -88,8 +78,11 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking [id=" + id + ", carid=" + carid +
-               ", cname=" + cname + ", phno=" + phno +
-               ", fromDate=" + fromDate + ", toDate=" + toDate + "]";
+        return "Booking [id=" + id +
+               ", carid=" + carid +
+               ", cname=" + cname +
+               ", phno=" + phno +
+               ", fromDate=" + fromDate +
+               ", toDate=" + toDate + "]";
     }
 }
