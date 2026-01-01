@@ -16,8 +16,7 @@
 		<property name="javax.persistence.jdbc.user"
           value="postgres.ymgxfedqjczefczcrsxo" />
 
-		<property name="javax.persistence.jdbc.password"
-          value="" />
+		
            
 
 	    <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/> <!-- DB Dialect -->

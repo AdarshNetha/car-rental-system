@@ -27,10 +27,10 @@ public class CustomerService extends HttpServlet{
 		props.put("javax.persistence.jdbc.password",
 		          System.getenv("DB_PASSWORD"));
 
-		EntityManagerFactory emf =
+		EntityManagerFactory entityManagerFactory =
 		    Persistence.createEntityManagerFactory("cars", props);
 
-		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("cars");
+		
 		EntityManager entityManager=entityManagerFactory.createEntityManager();
 		EntityTransaction entityTransaction=entityManager.getTransaction();
 		
