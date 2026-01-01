@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import assets.Car;
+import util.JPAUtil;
 @WebServlet("/customerservice")
 public class CustomerService extends HttpServlet{
 
@@ -27,11 +28,10 @@ public class CustomerService extends HttpServlet{
 		props.put("javax.persistence.jdbc.password",
 		          System.getenv("DB_PASSWORD"));
 
-		EntityManagerFactory entityManagerFactory =
-		    Persistence.createEntityManagerFactory("cars", props);
-
 		
-		EntityManager entityManager=entityManagerFactory.createEntityManager();
+		EntityManager entityManager =
+			    JPAUtil.getEMF().createEntityManager();
+
 		EntityTransaction entityTransaction=entityManager.getTransaction();
 		
 		String query="Select c from Car c where c.status='avilable'";
