@@ -1,12 +1,9 @@
 package customer;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,43 +13,62 @@ import javax.servlet.http.HttpServletResponse;
 
 import assets.Booking;
 import assets.Car;
+import util.JPAUtil;
+
 @WebServlet("/bookcar")
 public class BookCar extends HttpServlet {
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("cars");
-		EntityManager entityManager=entityManagerFactory.createEntityManager();
-		EntityTransaction entityTransaction=entityManager.getTransaction();
-		
-		int id=Integer.parseInt(req.getParameter("id"));
-		String cname=req.getParameter("username");
-		long cphone=Long.parseLong(req.getParameter("contactno"));
-		String fromDate=req.getParameter("from");
-		String toDate=req.getParameter("to");
-		
-		entityTransaction.begin();
-		
-		Car c =entityManager.find(Car.class,id);
-		if(c!=null)
-		{
-			c.setStatus("booked");
-		}
-		c=entityManager.merge(c);
-		
-		Booking booking= new Booking(id, cname, cphone, fromDate, toDate);
-		
-		
-		entityManager.persist(booking);
-		
-		entityTransaction.commit();
-		req.setAttribute("bookingData", booking);
-		req.setAttribute("car", c);
-		RequestDispatcher requestDispatcher= req.getRequestDispatcher("BookingCarData.jsp");
-		requestDispatcher.forward(req, resp);
-		
-		
-		
-	}
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        EntityManager entityManager = JPAUtil.getEMF().createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        try {
+            int id = Integer.parseInt(req.getParameter("id"));
+            String cname = req.getParameter("username");
+            long cphone = Long.parseLong(req.getParameter("contactno"));
+            String fromDate = req.getParameter("from");
+            String toDate = req.getParameter("to");
+
+            transaction.begin();
+
+            Car car = entityManager.find(Car.class, id);
+
+            if (car == null || !"avilable".equals(car.getStatus())) {
+                transaction.rollback();
+                resp.sendError(HttpServletResponse.SC_CONFLICT,
+                        "Car is not available");
+                return;
+            }
+
+            car.setStatus("booked");
+            entityManager.merge(car);
+
+            Booking booking =
+                    new Booking(id, cname, cphone, fromDate, toDate);
+            entityManager.persist(booking);
+
+            transaction.commit();
+
+            req.setAttribute("bookingData", booking);
+            req.setAttribute("car", car);
+
+            RequestDispatcher rd =
+                    req.getRequestDispatcher("BookingCarData.jsp");
+            rd.forward(req, resp);
+
+        } catch (Exception e) {
+
+            if (transaction.isActive()) {
+                transaction.rollback(); // ✅ VERY IMPORTANT
+            }
+
+            throw new ServletException(e);
+
+        } finally {
+            entityManager.close(); // ✅ VERY IMPORTANT
+        }
+    }
 }

@@ -2,18 +2,20 @@
 <web-app
     xmlns="http://xmlns.jcp.org/xml/ns/javaee"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
-                        http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+    xsi:schemaLocation="
+        http://xmlns.jcp.org/xml/ns/javaee
+        http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
     version="4.0">
 
-    <!-- FIX for duplicate Jasper fragments -->
+    <!-- App Name -->
+    <display-name>Car Rental Service System</display-name>
+
+    <!-- FIX: Jasper duplicate fragment issue (Railway / webapp-runner) -->
     <absolute-ordering>
         <name>org_apache_jasper</name>
     </absolute-ordering>
 
-    <display-name>Car Rental Service System</display-name>
-
-    <!-- REQUIRED: default landing page -->
+    <!-- Default landing pages -->
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
         <welcome-file>index.jsp</welcome-file>

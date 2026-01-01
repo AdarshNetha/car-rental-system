@@ -1,13 +1,9 @@
 package admin;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,29 +12,51 @@ import javax.servlet.http.HttpServletResponse;
 
 import assets.Booking;
 import assets.Car;
+import util.JPAUtil;
 
 @WebServlet("/delete-booking")
-public class DeleteBooking extends HttpServlet{
-	
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		EntityManagerFactory entityManagerFactory=Persistence.createEntityManagerFactory("cars");
-		EntityManager entityManager=entityManagerFactory.createEntityManager();
-		EntityTransaction entityTransaction=entityManager.getTransaction();
-		
-		int cid=Integer.parseInt(req.getParameter("cid"));
-		int bid=Integer.parseInt(req.getParameter("bid"));
-		
-		entityTransaction.begin();
-		Car c =entityManager.find(Car.class, cid);
-		c.setStatus("avilable");
-		entityManager.merge(c);
-		Booking b=entityManager.find(Booking.class,bid);
-		entityManager.remove(b);		
-		entityTransaction.commit();
-		
-		RequestDispatcher requestDispatcher=req.getRequestDispatcher("Returned.html");
-		requestDispatcher.forward(req, resp);
-	}
+public class DeleteBooking extends HttpServlet {
 
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+
+        EntityManager entityManager = JPAUtil.getEMF().createEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+
+        try {
+            int cid = Integer.parseInt(req.getParameter("cid"));
+            int bid = Integer.parseInt(req.getParameter("bid"));
+
+            transaction.begin();
+
+            Car car = entityManager.find(Car.class, cid);
+            Booking booking = entityManager.find(Booking.class, bid);
+
+            if (car != null) {
+                car.setStatus("avilable");
+                entityManager.merge(car);
+            }
+
+            if (booking != null) {
+                entityManager.remove(booking);
+            }
+
+            transaction.commit();
+
+            // ✅ PRG pattern
+            resp.sendRedirect("Returned.html");
+
+        } catch (Exception e) {
+
+            if (transaction.isActive()) {
+                transaction.rollback(); // ✅ VERY IMPORTANT
+            }
+
+            throw new ServletException(e);
+
+        } finally {
+            entityManager.close(); // ✅ VERY IMPORTANT
+        }
+    }
 }

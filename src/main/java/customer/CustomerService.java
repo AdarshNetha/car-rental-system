@@ -1,14 +1,9 @@
 package customer;
 
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
-import javax.persistence.Persistence;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -18,28 +13,29 @@ import javax.servlet.http.HttpServletResponse;
 
 import assets.Car;
 import util.JPAUtil;
+
 @WebServlet("/customerservice")
-public class CustomerService extends HttpServlet{
+public class CustomerService extends HttpServlet {
 
-	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		Map<String, String> props = new HashMap<String, String>();
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
 
-		props.put("javax.persistence.jdbc.password",
-		          System.getenv("DB_PASSWORD"));
+        EntityManager entityManager = JPAUtil.getEMF().createEntityManager();
 
-		
-		EntityManager entityManager =
-			    JPAUtil.getEMF().createEntityManager();
+        try {
+            String query = "SELECT c FROM Car c WHERE c.status = 'avilable'";
+            List<Car> availableCarList =
+                    entityManager.createQuery(query, Car.class).getResultList();
 
-		EntityTransaction entityTransaction=entityManager.getTransaction();
-		
-		String query="Select c from Car c where c.status='avilable'";
-		List<Car> availabeCarlist=entityManager.createQuery(query).getResultList();
-		
-		req.setAttribute("AvailabeCarList", availabeCarlist);
-		
-		RequestDispatcher requestDispatcher=req.getRequestDispatcher("SeeAllAvailabeCars.jsp");
-		requestDispatcher.forward(req, resp);
-		}
+            req.setAttribute("AvailabeCarList", availableCarList);
+
+            RequestDispatcher rd =
+                    req.getRequestDispatcher("SeeAllAvailabeCars.jsp");
+            rd.forward(req, resp);
+
+        } finally {
+            entityManager.close(); // ✅ VERY IMPORTANT
+        }
+    }
 }

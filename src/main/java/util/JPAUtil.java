@@ -9,13 +9,24 @@ public class JPAUtil {
 
     private static EntityManagerFactory emf;
 
-    public static EntityManagerFactory getEMF() {
+    private JPAUtil() {
+        // prevent object creation
+    }
+
+    public static synchronized EntityManagerFactory getEMF() {
         if (emf == null) {
             Map<String, String> props = new HashMap<>();
-            props.put(
-                "javax.persistence.jdbc.password",
-                System.getenv("DB_PASSWORD")
-            );
+
+            String password = System.getenv("DB_PASSWORD");
+
+            if (password == null || password.isEmpty()) {
+                throw new RuntimeException(
+                    "DB_PASSWORD environment variable is not set"
+                );
+            }
+
+            props.put("javax.persistence.jdbc.password", password);
+
             emf = Persistence.createEntityManagerFactory("cars", props);
         }
         return emf;
