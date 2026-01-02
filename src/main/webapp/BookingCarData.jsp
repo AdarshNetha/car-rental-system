@@ -18,8 +18,8 @@
         margin: 0;
         padding: 15px;
         font-family: "Poppins", sans-serif;
-        background: #0b0f1a;   /* deep dark blue-black */
-        color: #e5e7eb;
+        background: #000000;              /* PURE BLACK */
+        color: #e5e5e5;
         min-height: 100vh;
         display: flex;
         justify-content: center;
@@ -29,19 +29,23 @@
     .container {
         width: 100%;
         max-width: 420px;
-        background: #111827;   /* dark gray */
-        border: 1px solid #2563eb; /* soft blue */
+        background: #111111;              /* DARK CARD */
+        border: 1px solid #1e40af;        /* SOFT BLUE BORDER */
         border-radius: 16px;
         padding: 26px;
-        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
         text-align: center;
+        box-shadow:
+            0 0 12px rgba(30, 64, 175, 0.35),   /* BLUE GLOW */
+            0 0 8px rgba(250, 204, 21, 0.15);   /* GOLD TINT */
     }
 
     h1 {
         margin-bottom: 18px;
         font-size: 26px;
-        color: #facc15; /* soft gold */
-        text-shadow: none;
+        color: #facc15;                   /* SOFT GOLD */
+        font-weight: 600;
+        text-shadow:
+            0 0 6px rgba(250, 204, 21, 0.6);   /* GOLD GLOW */
     }
 
     .details {
@@ -49,12 +53,12 @@
         font-size: 15px;
         line-height: 1.7;
         margin-bottom: 22px;
-        color: #d1d5db;
+        color: #d1d1d1;
     }
 
     .details b {
-        color: #facc15;
-        font-weight: 600;
+        color: #ffffff;
+        font-weight: 500;
     }
 
     button {
@@ -62,16 +66,20 @@
         padding: 14px;
         font-size: 16px;
         color: #ffffff;
-        border: none;
-        border-radius: 50px;
-        background: #2563eb; /* primary blue */
+        background: #000000;
+        border: 1.5px solid #1e40af;      /* BLUE EDGE */
+        border-radius: 30px;
         cursor: pointer;
-        transition: 0.3s;
+        font-weight: 600;
+        transition: 0.3s ease;
+        box-shadow: 0 0 8px rgba(30, 64, 175, 0.4);
     }
 
     button:hover {
-        background: #1d4ed8;
-        box-shadow: 0 0 14px rgba(37, 99, 235, 0.6);
+        background: #111111;
+        box-shadow:
+            0 0 14px rgba(30, 64, 175, 0.8),   /* BLUE GLOW */
+            0 0 10px rgba(250, 204, 21, 0.5);  /* GOLD GLOW */
     }
 
     /* 📱 Mobile */
@@ -90,6 +98,7 @@
         }
     }
 </style>
+
 
 
 </head>
