@@ -2,31 +2,39 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Car Returned</title>
 
 <style>
+    * {
+        box-sizing: border-box;
+    }
+
     body {
         margin: 0;
-        height: 100vh;
-        background-color: #000000; /* pure black */
+        min-height: 100vh;
+        background-color: #000000;
         display: flex;
         justify-content: center;
         align-items: center;
         font-family: 'Segoe UI', Arial, sans-serif;
+        padding: 15px;
     }
 
     .box {
+        width: 100%;
+        max-width: 420px;
         text-align: center;
-        padding: 45px 60px;
-        border: 2px solid #0A58FF; /* neon royal blue */
+        padding: 35px 30px;
+        border: 2px solid #0A58FF;
         border-radius: 18px;
         box-shadow: 0 0 25px rgba(10, 88, 255, 0.5);
     }
 
     h1 {
-        margin-bottom: 35px;
-        font-size: 34px;
-        color: #FFD700; /* gold */
+        margin-bottom: 30px;
+        font-size: 30px;
+        color: #FFD700;
         letter-spacing: 1px;
         text-shadow:
             0 0 8px rgba(255, 215, 0, 0.6),
@@ -35,12 +43,19 @@
 
     .actions {
         display: flex;
-        gap: 25px;
+        gap: 18px;
         justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .actions form {
+        width: 100%;
+        max-width: 260px;
     }
 
     button {
-        padding: 14px 36px;
+        width: 100%;
+        padding: 14px;
         border-radius: 30px;
         font-size: 16px;
         font-weight: 600;
@@ -54,11 +69,28 @@
     }
 
     button:hover {
-        background-color: #0A58FF; /* royal blue */
+        background-color: #0A58FF;
         color: #FFFFFF;
         transform: scale(1.05);
     }
+
+    /* 📱 Mobile */
+    @media (max-width: 480px) {
+        .box {
+            padding: 28px 22px;
+        }
+
+        h1 {
+            font-size: 24px;
+        }
+
+        button {
+            font-size: 15px;
+            padding: 12px;
+        }
+    }
 </style>
+
 </head>
 
 <body>

@@ -1,0 +1,108 @@
+@charset "UTF-8";
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        padding: 15px;
+        font-family: "Poppins", sans-serif;
+        background: #000;
+        color: #f1c40f;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 420px;
+        background: rgba(10, 10, 10, 0.9);
+        padding: 25px;
+        border-radius: 15px;
+        border: 2px solid #0a4dff;
+        box-shadow: 0 0 20px rgba(10, 77, 255, 0.8);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-size: 22px;
+        text-shadow: 0 0 10px #0a4dff;
+    }
+
+    label {
+        display: block;
+        margin-top: 14px;
+        font-size: 15px;
+    }
+
+    input {
+        width: 100%;
+        padding: 11px;
+        margin-top: 6px;
+        border-radius: 8px;
+        border: 1px solid #0a4dff;
+        background: #111;
+        color: #f1c40f;
+        font-size: 15px;
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow: 0 0 10px #0a4dff;
+    }
+
+    .btn {
+        width: 100%;
+        padding: 13px;
+        margin-top: 25px;
+        font-size: 17px;
+        border: none;
+        background: #0a4dff;
+        color: white;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .btn:hover {
+        box-shadow: 0 0 15px #0a4dff;
+    }
+
+    /* 📱 Mobile (Small screens) */
+    @media (max-width: 480px) {
+        body {
+            padding: 10px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        label {
+            font-size: 14px;
+        }
+
+        input {
+            font-size: 14px;
+            padding: 10px;
+        }
+
+        .btn {
+            font-size: 16px;
+            padding: 12px;
+        }
+    }
+
+    /* 📱 Tablet */
+    @media (min-width: 481px) and (max-width: 768px) {
+        .container {
+            max-width: 380px;
+        }
+    }

@@ -6,57 +6,84 @@
     <title>Add Car - Admin</title>
 
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Poppins", sans-serif;
-            background: #000;
-            color: #f1c40f;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-        }
+    * {
+        box-sizing: border-box;
+    }
 
+    body {
+        margin: 0;
+        padding: 20px;
+        font-family: "Poppins", sans-serif;
+        background: #000;
+        color: #f1c40f;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 38px;
+        margin-bottom: 35px;
+        text-shadow: 0 0 10px #0a4dff;
+    }
+
+    .btn {
+        display: block;
+        width: 320px;
+        max-width: 90%;
+        padding: 14px;
+        margin: 12px 0;
+        font-size: 20px;
+        text-decoration: none;
+        color: #f1c40f;
+        border: 2px solid #0a4dff;
+        border-radius: 50px;
+        background: transparent;
+        cursor: pointer;
+        transition: 0.3s;
+        text-align: center;
+    }
+
+    .btn:hover {
+        background: #0a4dff;
+        color: #fff;
+        box-shadow: 0 0 15px #0a4dff;
+    }
+
+    form {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 📱 Mobile Optimization */
+    @media (max-width: 480px) {
         h1 {
-            font-size: 40px;
-            margin-bottom: 40px;
-            text-shadow: 0px 0px 10px #0a4dff;
+            font-size: 28px;
+            margin-bottom: 25px;
         }
 
         .btn {
-            display: inline-block;
-            padding: 15px 35px;
-            margin: 10px;
-            font-size: 20px;
-            text-decoration: none;
-            color: #f1c40f;
-            border: 2px solid #0a4dff;
-            border-radius: 50px;
-            transition: 0.3s;
-            background: transparent;
+            font-size: 17px;
+            padding: 12px;
+        }
+    }
+
+    /* 📱 Tablet */
+    @media (min-width: 481px) and (max-width: 768px) {
+        h1 {
+            font-size: 32px;
         }
 
-        .btn:hover {
-            background: #0a4dff;
-            color: #fff;
-            box-shadow: 0 0 15px #0a4dff;
+        .btn {
+            font-size: 18px;
         }
-
-        /* Responsive adjustments */
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 30px;
-            }
-            .btn {
-                width: 70%;
-                font-size: 18px;
-                padding: 12px 20px;
-            }
-        }
-    </style>
+    }
+</style>
+    
 
 </head>
 <body>

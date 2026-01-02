@@ -5,46 +5,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome to Cars</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Poppins", sans-serif;
-            background: #000; /* Black background */
-            color: #f1c40f;  /* Golden text */
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+  <style>
+    * {
+        box-sizing: border-box;
+    }
 
+    body {
+        margin: 0;
+        padding: 20px;
+        font-family: "Poppins", sans-serif;
+        background: #000;
+        color: #f1c40f;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    h1 {
+        font-size: 44px;
+        margin-bottom: 35px;
+        text-shadow: 0 0 10px #0a4dff;
+    }
+
+    .btn {
+        width: 320px;
+        max-width: 90%;
+        padding: 14px;
+        margin: 12px 0;
+        font-size: 22px;
+        text-decoration: none;
+        color: #f1c40f;
+        border: 2px solid #0a4dff;
+        border-radius: 50px;
+        background: transparent;
+        cursor: pointer;
+        transition: 0.3s ease-in-out;
+        display: inline-block;
+    }
+
+    .btn:hover {
+        background: #0a4dff;
+        color: #fff;
+        box-shadow: 0 0 15px #0a4dff;
+    }
+
+    /* 📱 Mobile */
+    @media (max-width: 480px) {
         h1 {
-            font-size: 48px;
-            margin-bottom: 40px;
-            text-shadow: 0px 0px 10px #0a4dff; /* Royal blue glow */
+            font-size: 28px;
+            margin-bottom: 25px;
         }
 
         .btn {
-            display: inline-block;
-            padding: 15px 40px;
-            margin: 15px;
-            font-size: 22px;
-            text-decoration: none;
-            color: #f1c40f; /* Golden text */
-            border: 2px solid #0a4dff; /* Royal blue border */
-            border-radius: 50px;
-            transition: 0.3s ease-in-out;
-            background: transparent;
+            font-size: 18px;
+            padding: 12px;
+        }
+    }
+
+    /* 📱 Tablet */
+    @media (min-width: 481px) and (max-width: 768px) {
+        h1 {
+            font-size: 34px;
         }
 
-        .btn:hover {
-            background: #0a4dff; /* Royal blue fill */
-            color: #fff;         /* White text */
-            box-shadow: 0 0 15px #0a4dff;
+        .btn {
+            font-size: 20px;
         }
-    </style>
-
+    }
+</style>
+  
 </head>
 <body>
 
