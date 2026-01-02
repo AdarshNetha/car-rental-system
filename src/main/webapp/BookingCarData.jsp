@@ -18,8 +18,8 @@
         margin: 0;
         padding: 15px;
         font-family: "Poppins", sans-serif;
-        background: #000;
-        color: #f1c40f;
+        background: #0b0f1a;   /* deep dark blue-black */
+        color: #e5e7eb;
         min-height: 100vh;
         display: flex;
         justify-content: center;
@@ -29,48 +29,49 @@
     .container {
         width: 100%;
         max-width: 420px;
-        background: rgba(10, 10, 10, 0.9);
-        border: 2px solid #0a4dff;
-        border-radius: 15px;
-        padding: 25px;
-        box-shadow: 0 0 20px rgba(10, 77, 255, 0.8);
+        background: #111827;   /* dark gray */
+        border: 1px solid #2563eb; /* soft blue */
+        border-radius: 16px;
+        padding: 26px;
+        box-shadow: 0 10px 30px rgba(37, 99, 235, 0.35);
         text-align: center;
     }
 
     h1 {
-        margin-bottom: 20px;
+        margin-bottom: 18px;
         font-size: 26px;
-        text-shadow: 0 0 10px #0a4dff;
+        color: #facc15; /* soft gold */
+        text-shadow: none;
     }
 
     .details {
         text-align: left;
         font-size: 15px;
-        line-height: 1.6;
-        margin-bottom: 20px;
-        color: #e0e0e0;
+        line-height: 1.7;
+        margin-bottom: 22px;
+        color: #d1d5db;
     }
 
     .details b {
-        color: #f1c40f;
+        color: #facc15;
+        font-weight: 600;
     }
 
     button {
         width: 100%;
         padding: 14px;
-        font-size: 18px;
-        color: #f1c40f;
-        border: 2px solid #0a4dff;
+        font-size: 16px;
+        color: #ffffff;
+        border: none;
         border-radius: 50px;
-        background: transparent;
+        background: #2563eb; /* primary blue */
         cursor: pointer;
         transition: 0.3s;
     }
 
     button:hover {
-        background: #0a4dff;
-        color: #fff;
-        box-shadow: 0 0 15px #0a4dff;
+        background: #1d4ed8;
+        box-shadow: 0 0 14px rgba(37, 99, 235, 0.6);
     }
 
     /* 📱 Mobile */
@@ -84,11 +85,12 @@
         }
 
         button {
-            font-size: 16px;
+            font-size: 15px;
             padding: 12px;
         }
     }
 </style>
+
 
 </head>
 <body>
