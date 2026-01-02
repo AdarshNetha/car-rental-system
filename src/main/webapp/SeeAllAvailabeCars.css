@@ -12,8 +12,8 @@
 body {
     margin: 0;
     padding: 15px;
-    background: #000000;              /* PURE BLACK */
-    color: #e5e5e5;
+    background:  #000;              /* PURE BLACK */
+    color:  #f1c40f;
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -24,24 +24,20 @@ body {
 .container {
     width: 100%;
     max-width: 420px;
-    background: #000000;              /* BLACK CARD */
+    background: rgba(10, 10, 10, 0.9);  
+     border: 2px solid #0a4dff;            /* BLACK CARD */
     border-radius: 20px;
     padding: 28px;
     text-align: center;
-    box-shadow:
-        0 0 18px rgba(10, 77, 255, 0.6),     /* ELECTRIC BLUE */
-        0 0 22px rgba(241, 196, 15, 0.35);   /* GOLD GLOW */
+    box-shadow: 0 0 20px rgba(10, 77, 255, 0.8);  /* GOLD GLOW */
 }
 
 /* ===== Heading ===== */
 h1 {
     margin-bottom: 20px;
     font-size: 26px;
-    color: #f1c40f;                   /* NEON GOLD */
     font-weight: 600;
-    text-shadow:
-        0 0 8px #0a4dff,
-        0 0 14px rgba(241, 196, 15, 0.8);
+   text-shadow: 0 0 10px #0a4dff;
 }
 
 /* ===== Details Text ===== */
@@ -50,11 +46,11 @@ h1 {
     font-size: 15px;
     line-height: 1.7;
     margin-bottom: 24px;
-    color: #dcdcdc;
+     color: #f1c40f;
 }
 
 .details b {
-    color: #ffffff;
+     color: #f1c40f;
     font-weight: 600;
 }
 
@@ -64,9 +60,9 @@ button {
     padding: 14px;
     font-size: 17px;
     font-weight: 600;
-    color: #f1c40f;
-    background: transparent;
-    border: 2px solid #0a4dff;        /* BLUE BORDER */
+    color: white;
+    background: #0a4dff;
+    border: none;    
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -74,11 +70,7 @@ button {
 }
 
 button:hover {
-    background: #0a4dff;
-    color: #ffffff;
-    box-shadow:
-        0 0 18px rgba(10, 77, 255, 1),
-        0 0 20px rgba(241, 196, 15, 0.9);
+     box-shadow: 0 0 15px #0a4dff;
     transform: scale(1.03);
 }
 
